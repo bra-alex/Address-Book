@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct AddEntryView: View {
+    @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
+    
+    @FetchRequest(sortDescriptors: []) var contacts: FetchedResults<Contacts>
     
     @State private var firstName = ""
     @State private var lastName = ""
@@ -21,7 +24,12 @@ struct AddEntryView: View {
             Form {
                 Section{
                     TextField("First Name", text: $firstName)
+                        .textInputAutocapitalization(.words)
+                        .autocorrectionDisabled()
+                    
                     TextField("Last Name", text: $lastName)
+                        .textInputAutocapitalization(.words)
+                        .autocorrectionDisabled()
                 }
                 
                 Section{
@@ -29,6 +37,9 @@ struct AddEntryView: View {
                         HStack{
                             TextField("Phone Number", text: $phoneNumbers[i])
                                 .keyboardType(.phonePad)
+                                .textInputAutocapitalization(.never)
+                                .autocorrectionDisabled()
+                            
                             Button {
                                 phoneNumbers.remove(at: i)
                             } label: {
@@ -45,7 +56,7 @@ struct AddEntryView: View {
                     } label: {
                         HStack{
                             Image(systemName: "plus")
-                            Text("Add another number")
+                            Text("Add number")
                         }
                     }
                 }
@@ -55,6 +66,8 @@ struct AddEntryView: View {
                         HStack{
                             TextField("Email", text: $emails[i])
                                 .keyboardType(.emailAddress)
+                                .textInputAutocapitalization(.never)
+                                .autocorrectionDisabled()
                             
                             Button {
                                 emails.remove(at: i)
@@ -73,7 +86,7 @@ struct AddEntryView: View {
                     } label: {
                         HStack{
                             Image(systemName: "plus")
-                            Text("Add another email")
+                            Text("Add email")
                         }
                     }
                 }
@@ -81,6 +94,7 @@ struct AddEntryView: View {
                 Section{
                     Text("Address")
                     TextEditor(text: $address)
+                        .textInputAutocapitalization(.words)
                 }
             }
             .toolbar{
@@ -92,6 +106,15 @@ struct AddEntryView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
+                        let contacts = Contacts(context: moc)
+                        contacts.firstName = firstName
+                        contacts.lastName = lastName
+                        contacts.address = address
+                        contacts.emails = emails
+                        contacts.phoneNumbers = phoneNumbers
+                        
+                        try? moc.save()
+                        
                         dismiss()
                     }
                 }

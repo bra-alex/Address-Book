@@ -8,24 +8,28 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var contacts: FetchedResults<Contacts>
+    
     @State private var addEntry = false
+    
     var body: some View {
         List {
-            ForEach(0..<10) { i in
+            ForEach(contacts, id:\.self) { contact in
                 NavigationLink {
-                    DetailView()
+                    DetailView(contact: contact)
                 } label: {
-                    Text(i.formatted())
+                    Text("\(contact.wrappedFirstName) \(contact.wrappedLastName)")
                 }
             }
             .onDelete(perform: deleteEntry)
-            .sheet(isPresented: $addEntry) {
-                AddEntryView()
-            }
         }
         .listStyle(.plain)
         .navigationTitle("Address Book")
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $addEntry) {
+            AddEntryView()
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -35,10 +39,18 @@ struct HomeView: View {
                 }
             }
         }
+        
     }
     
-    func deleteEntry(at offset: IndexSet) {
+    func deleteEntry(at offsets: IndexSet) {
+        for offset in offsets{
+            let contact = contacts[offset]
+            moc.delete(contact)
+        }
         
+        if moc.hasChanges{
+            try? moc.save()
+        }
     }
 }
 

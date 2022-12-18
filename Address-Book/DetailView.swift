@@ -9,42 +9,34 @@ import SwiftUI
 
 struct DetailView: View {
     @State private var edit = false
+    
+    let contact: Contacts
+    
     var body: some View {
-        List {
-            Text("Dummy UI")
-                .font(.title.bold())
-                .frame(maxWidth: .infinity, alignment: .center)
-            
-            Section("Phone Number") {
-                ForEach(0..<2) { i in
-                    VStack(alignment: .leading) {
-                        Text(i.formatted())
-                    }
-                }
-            }
-            
-            Section("Email") {
-                ForEach(0..<2) { i in
-                    VStack(alignment: .leading) {
-                        Text(i.formatted())
-                    }
-                }
-            }
-            
-            Section("Address") {
-                Text("Address")
+        Group {
+            if edit{
+                
+            } else {
+                InfoView(firstName: contact.wrappedFirstName, lastName: contact.wrappedLastName, phoneNumbers: contact.wrappedPhoneNumbers, emails: contact.wrappedEmails, address: contact.wrappedAddress)
             }
         }
         .toolbar {
-            EditButton()
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Edit") {
+                    if edit{
+                        
+                    }
+                    edit.toggle()
+                }
+            }
         }
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView{
-            DetailView()
-        }
-    }
-}
+//struct DetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView{
+//            DetailView()
+//        }
+//    }
+//}
