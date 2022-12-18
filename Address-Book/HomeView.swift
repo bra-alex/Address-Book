@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var contacts: FetchedResults<Contacts>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.firstName)]) var contacts: FetchedResults<Contacts>
     
     @State private var addEntry = false
     
@@ -33,7 +33,7 @@ struct HomeView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    addEntry.toggle()
+                    addEntry = true
                 } label: {
                     Label("Add", systemImage: "plus")
                 }
