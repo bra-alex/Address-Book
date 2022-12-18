@@ -21,6 +21,7 @@ extension Contacts {
     @NSManaged public var lastName: String?
     @NSManaged public var phoneNumbers: [String]?
     @NSManaged public var emails: [String]?
+    @NSManaged public var id: UUID?
     
     public var wrappedFirstName: String{
         firstName ?? "N/A"
@@ -41,7 +42,7 @@ extension Contacts {
     public var wrappedPhoneNumbers: [String]{
         phoneNumbers ?? ["N/A"]
     }
-
+    
 }
 
 extension Contacts : Identifiable {

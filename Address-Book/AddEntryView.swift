@@ -11,8 +11,6 @@ struct AddEntryView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     
-    @FetchRequest(sortDescriptors: []) var contacts: FetchedResults<Contacts>
-    
     @State private var firstName = ""
     @State private var lastName = ""
     @State private var emails = [String]()
@@ -107,6 +105,7 @@ struct AddEntryView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
                         let contacts = Contacts(context: moc)
+                        contacts.id = UUID()
                         contacts.firstName = firstName
                         contacts.lastName = lastName
                         contacts.address = address

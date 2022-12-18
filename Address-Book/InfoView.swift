@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct InfoView: View {
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.dismiss) var dismiss
+    
+    @Binding var edit: Bool
+    
     let firstName: String
     let lastName: String
     let phoneNumbers: [String]
@@ -41,14 +46,13 @@ struct InfoView: View {
             }
         }
         .toolbar {
-            EditButton()
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Edit") {
+                    withAnimation {
+                        edit.toggle()
+                    }
+                }
+            }
         }
-    }
-}
-
-
-struct InfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        InfoView(firstName: "hi", lastName: "hi", phoneNumbers: ["hi"], emails: ["hi"], address: "hi")
     }
 }

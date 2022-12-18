@@ -13,22 +13,11 @@ struct DetailView: View {
     let contact: Contacts
     
     var body: some View {
-        Group {
-            if edit{
+        if edit{
+            EditView(doneEditing: $edit, firstName: contact.wrappedFirstName, lastName: contact.wrappedLastName, emails: contact.wrappedEmails, phoneNumbers: contact.wrappedPhoneNumbers, address: contact.wrappedAddress, id: contact.id!)
+        } else {
+            InfoView(edit: $edit, firstName: contact.wrappedFirstName, lastName: contact.wrappedLastName, phoneNumbers: contact.wrappedPhoneNumbers, emails: contact.wrappedEmails, address: contact.wrappedAddress)
                 
-            } else {
-                InfoView(firstName: contact.wrappedFirstName, lastName: contact.wrappedLastName, phoneNumbers: contact.wrappedPhoneNumbers, emails: contact.wrappedEmails, address: contact.wrappedAddress)
-            }
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Edit") {
-                    if edit{
-                        
-                    }
-                    edit.toggle()
-                }
-            }
         }
     }
 }
