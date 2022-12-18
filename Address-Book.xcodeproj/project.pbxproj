@@ -14,6 +14,14 @@
 		9890FB80294E7C9E006A8FE3 /* AddressBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9890FB7E294E7C9E006A8FE3 /* AddressBook.xcdatamodeld */; };
 		9890FB82294E7DE8006A8FE3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9890FB81294E7DE8006A8FE3 /* HomeView.swift */; };
 		9890FB84294E7E2E006A8FE3 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9890FB83294E7E2E006A8FE3 /* DataController.swift */; };
+		9890FB86294E810E006A8FE3 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9890FB85294E810E006A8FE3 /* DetailView.swift */; };
+		9890FB8A294E8260006A8FE3 /* Contacts+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9890FB88294E8260006A8FE3 /* Contacts+CoreDataClass.swift */; };
+		9890FB8B294E8260006A8FE3 /* Contacts+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9890FB89294E8260006A8FE3 /* Contacts+CoreDataProperties.swift */; };
+		9890FB8D294E88F6006A8FE3 /* AddEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9890FB8C294E88F6006A8FE3 /* AddEntryView.swift */; };
+		9890FB92294E8DE2006A8FE3 /* PhoneNumbers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9890FB8E294E8DE2006A8FE3 /* PhoneNumbers+CoreDataClass.swift */; };
+		9890FB93294E8DE2006A8FE3 /* PhoneNumbers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9890FB8F294E8DE2006A8FE3 /* PhoneNumbers+CoreDataProperties.swift */; };
+		9890FB94294E8DE2006A8FE3 /* Emails+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9890FB90294E8DE2006A8FE3 /* Emails+CoreDataClass.swift */; };
+		9890FB95294E8DE2006A8FE3 /* Emails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9890FB91294E8DE2006A8FE3 /* Emails+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +33,14 @@
 		9890FB7F294E7C9E006A8FE3 /* AddressBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AddressBook.xcdatamodel; sourceTree = "<group>"; };
 		9890FB81294E7DE8006A8FE3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9890FB83294E7E2E006A8FE3 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		9890FB85294E810E006A8FE3 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		9890FB88294E8260006A8FE3 /* Contacts+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contacts+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		9890FB89294E8260006A8FE3 /* Contacts+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contacts+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		9890FB8C294E88F6006A8FE3 /* AddEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryView.swift; sourceTree = "<group>"; };
+		9890FB8E294E8DE2006A8FE3 /* PhoneNumbers+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhoneNumbers+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		9890FB8F294E8DE2006A8FE3 /* PhoneNumbers+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhoneNumbers+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		9890FB90294E8DE2006A8FE3 /* Emails+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Emails+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		9890FB91294E8DE2006A8FE3 /* Emails+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Emails+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,10 +73,13 @@
 		9890FB6F294E7C6F006A8FE3 /* Address-Book */ = {
 			isa = PBXGroup;
 			children = (
+				9890FB87294E8247006A8FE3 /* Model */,
 				9890FB70294E7C6F006A8FE3 /* Address_BookApp.swift */,
 				9890FB83294E7E2E006A8FE3 /* DataController.swift */,
 				9890FB72294E7C6F006A8FE3 /* ContentView.swift */,
 				9890FB81294E7DE8006A8FE3 /* HomeView.swift */,
+				9890FB8C294E88F6006A8FE3 /* AddEntryView.swift */,
+				9890FB85294E810E006A8FE3 /* DetailView.swift */,
 				9890FB7E294E7C9E006A8FE3 /* AddressBook.xcdatamodeld */,
 				9890FB74294E7C70006A8FE3 /* Assets.xcassets */,
 				9890FB76294E7C70006A8FE3 /* Preview Content */,
@@ -74,6 +93,19 @@
 				9890FB77294E7C70006A8FE3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9890FB87294E8247006A8FE3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9890FB8E294E8DE2006A8FE3 /* PhoneNumbers+CoreDataClass.swift */,
+				9890FB8F294E8DE2006A8FE3 /* PhoneNumbers+CoreDataProperties.swift */,
+				9890FB90294E8DE2006A8FE3 /* Emails+CoreDataClass.swift */,
+				9890FB91294E8DE2006A8FE3 /* Emails+CoreDataProperties.swift */,
+				9890FB88294E8260006A8FE3 /* Contacts+CoreDataClass.swift */,
+				9890FB89294E8260006A8FE3 /* Contacts+CoreDataProperties.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +179,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9890FB84294E7E2E006A8FE3 /* DataController.swift in Sources */,
+				9890FB86294E810E006A8FE3 /* DetailView.swift in Sources */,
+				9890FB8B294E8260006A8FE3 /* Contacts+CoreDataProperties.swift in Sources */,
+				9890FB93294E8DE2006A8FE3 /* PhoneNumbers+CoreDataProperties.swift in Sources */,
 				9890FB80294E7C9E006A8FE3 /* AddressBook.xcdatamodeld in Sources */,
+				9890FB95294E8DE2006A8FE3 /* Emails+CoreDataProperties.swift in Sources */,
+				9890FB8A294E8260006A8FE3 /* Contacts+CoreDataClass.swift in Sources */,
 				9890FB82294E7DE8006A8FE3 /* HomeView.swift in Sources */,
+				9890FB92294E8DE2006A8FE3 /* PhoneNumbers+CoreDataClass.swift in Sources */,
+				9890FB94294E8DE2006A8FE3 /* Emails+CoreDataClass.swift in Sources */,
+				9890FB8D294E88F6006A8FE3 /* AddEntryView.swift in Sources */,
 				9890FB73294E7C6F006A8FE3 /* ContentView.swift in Sources */,
 				9890FB71294E7C6F006A8FE3 /* Address_BookApp.swift in Sources */,
 			);

@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D5027d" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Contacts" representedClassName="Contacts" syncable="YES" codeGenerationType="class">
+    <entity name="Contacts" representedClassName="Contacts" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String"/>
-        <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="firstName" optional="YES" attributeType="String"/>
         <attribute name="lastName" optional="YES" attributeType="String"/>
-        <attribute name="phoneNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
+        <relationship name="emails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Emails" inverseName="contacts" inverseEntity="Emails"/>
+        <relationship name="phoneNumbers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PhoneNumbers" inverseName="contacts" inverseEntity="PhoneNumbers"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="firstName"/>
                 <constraint value="lastName"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
+    </entity>
+    <entity name="Emails" representedClassName="Emails" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <relationship name="contacts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contacts" inverseName="emails" inverseEntity="Contacts"/>
+    </entity>
+    <entity name="PhoneNumbers" representedClassName="PhoneNumbers" syncable="YES">
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
+        <relationship name="contacts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contacts" inverseName="phoneNumbers" inverseEntity="Contacts"/>
     </entity>
 </model>
